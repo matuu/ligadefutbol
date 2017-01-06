@@ -1,12 +1,20 @@
 #!/usr/bin/env python3
+import os
 import sys
+from datetime import datetime
 
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QBrush, QImage, QPalette
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDesktopWidget
-from PyQt5.QtWidgets import QMdiSubWindow
+from PyQt5.QtWidgets import QLabel
+from sqlalchemy import func
 
+from ligafutbol.about import AboutDialog
+from ligafutbol.clubs import ClubListView
 from ligafutbol.gui.main import Ui_MainWindow
-from ligafutbol.capture_picture import CaptureWebcam
+from ligafutbol.models import DBSession, Jugador
 from ligafutbol.players import PlayerListView
+from ligafutbol import VERSION
 
 
 class LSFMainWindow(QMainWindow):
@@ -27,6 +35,17 @@ class LSFMainWindow(QMainWindow):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
+    def resizeEvent(self, resizeEvent):
+        self.load_background()
+
+    def load_background(self):
+        oImage = QImage(':/images/asserts/fondo_liga.png')
+        sImage = oImage.scaled(self.size(), Qt.KeepAspectRatioByExpanding,
+                               Qt.SmoothTransformation)  # resize Image to widgets size
+        palette = QPalette()
+        palette.setBrush(QPalette.Background, QBrush(sImage))
+        self.setPalette(palette)
+
 
 class LigaDeFutbolApp(Ui_MainWindow):
 
@@ -37,27 +56,41 @@ class LigaDeFutbolApp(Ui_MainWindow):
         self.init_ui()
 
     def init_ui(self):
+        lbl_version = QLabel()
+        lbl_version.setText("Versión: {}".format(VERSION))
+        self.statusbar.addWidget(lbl_version)
+
+        self.main_window.load_background()
         self.main_window.center()
         self.actionSalir.triggered.connect(self.main_window.close)
         self.action_players_list.triggered.connect(self.show_players_list)
-        self.openCamera.clicked.connect(self.open_camera)
-
-    def open_camera(self):
-        dialog_capture_image = CaptureWebcam()
-        dialog_capture_image.exec_()
-        print(dialog_capture_image.cancel)
+        self.action_clubs_list.triggered.connect(self.show_clubs_list)
+        self.actionAcerca_de.triggered.connect(self.show_about_dialog)
 
     def show_players_list(self):
-        print("show")
         player_list = PlayerListView()
         player_list.exec_()
 
+    def show_clubs_list(self):
+        club_list = ClubListView()
+        club_list.exec_()
+
+    def show_about_dialog(self):
+        about = AboutDialog()
+        about.exec_()
+
+    def get_player_card_today(self):
+        db = DBSession()
+        players = db.query(Jugador).filter(func.date(Jugador.fecha_impresion) == datetime.today()).all()
+        print(players)
 ###################
 #  Event handler  #
 ###################
 
 
 if __name__ == '__main__':
+    if not os.path.exists("media"):
+        os.makedirs("media")
     app = QApplication(sys.argv)
     MainWindow = LSFMainWindow()
     liga_app = LigaDeFutbolApp(MainWindow)

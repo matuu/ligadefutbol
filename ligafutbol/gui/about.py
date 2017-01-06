@@ -1,0 +1,117 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'gui/about.ui'
+#
+# Created by: PyQt5 UI code generator 5.7.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_about_dialog(object):
+    def setupUi(self, about_dialog):
+        about_dialog.setObjectName("about_dialog")
+        about_dialog.setWindowModality(QtCore.Qt.ApplicationModal)
+        about_dialog.resize(598, 312)
+        about_dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
+        about_dialog.setModal(True)
+        self.horizontalLayout = QtWidgets.QHBoxLayout(about_dialog)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.lbl_logo = QtWidgets.QLabel(about_dialog)
+        self.lbl_logo.setMinimumSize(QtCore.QSize(250, 250))
+        self.lbl_logo.setText("")
+        self.lbl_logo.setPixmap(QtGui.QPixmap(":/images/asserts/icon-200.png"))
+        self.lbl_logo.setScaledContents(False)
+        self.lbl_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.lbl_logo.setObjectName("lbl_logo")
+        self.horizontalLayout.addWidget(self.lbl_logo)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.lbl_title = QtWidgets.QLabel(about_dialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(2)
+        sizePolicy.setVerticalStretch(2)
+        sizePolicy.setHeightForWidth(self.lbl_title.sizePolicy().hasHeightForWidth())
+        self.lbl_title.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.lbl_title.setFont(font)
+        self.lbl_title.setStyleSheet("color: rgb(38, 38, 38);")
+        self.lbl_title.setWordWrap(True)
+        self.lbl_title.setObjectName("lbl_title")
+        self.verticalLayout.addWidget(self.lbl_title)
+        self.lbl_version = QtWidgets.QLabel(about_dialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.lbl_version.sizePolicy().hasHeightForWidth())
+        self.lbl_version.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setItalic(True)
+        self.lbl_version.setFont(font)
+        self.lbl_version.setStyleSheet("color: rgb(38, 38, 38);")
+        self.lbl_version.setObjectName("lbl_version")
+        self.verticalLayout.addWidget(self.lbl_version)
+        self.lbl_description = QtWidgets.QLabel(about_dialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.lbl_description.sizePolicy().hasHeightForWidth())
+        self.lbl_description.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setItalic(True)
+        self.lbl_description.setFont(font)
+        self.lbl_description.setStyleSheet("color: rgb(38, 38, 38);")
+        self.lbl_description.setWordWrap(True)
+        self.lbl_description.setObjectName("lbl_description")
+        self.verticalLayout.addWidget(self.lbl_description)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.lbl_year = QtWidgets.QLabel(about_dialog)
+        self.lbl_year.setObjectName("lbl_year")
+        self.horizontalLayout_2.addWidget(self.lbl_year)
+        self.lbl_logo_brand = QtWidgets.QLabel(about_dialog)
+        self.lbl_logo_brand.setText("")
+        self.lbl_logo_brand.setObjectName("lbl_logo_brand")
+        self.horizontalLayout_2.addWidget(self.lbl_logo_brand)
+        self.lbl_brand = QtWidgets.QLabel(about_dialog)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(1)
+        sizePolicy.setVerticalStretch(2)
+        sizePolicy.setHeightForWidth(self.lbl_brand.sizePolicy().hasHeightForWidth())
+        self.lbl_brand.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        font.setItalic(True)
+        self.lbl_brand.setFont(font)
+        self.lbl_brand.setStyleSheet("color: rgb(38, 38, 38);")
+        self.lbl_brand.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.lbl_brand.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.lbl_brand.setObjectName("lbl_brand")
+        self.horizontalLayout_2.addWidget(self.lbl_brand)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.horizontalLayout.addLayout(self.verticalLayout)
+
+        self.retranslateUi(about_dialog)
+        QtCore.QMetaObject.connectSlotsByName(about_dialog)
+
+    def retranslateUi(self, about_dialog):
+        _translate = QtCore.QCoreApplication.translate
+        about_dialog.setWindowTitle(_translate("about_dialog", "Acerca de Liga Sanrafaelina de Fútbol"))
+        self.lbl_title.setText(_translate("about_dialog", "Liga Sanrafaelina de Fútbol"))
+        self.lbl_version.setText(_translate("about_dialog", "Version:"))
+        self.lbl_description.setText(_translate("about_dialog", "Aplicación de gestión de jugadores y clubes. Impresión de credenciales y reportes."))
+        self.lbl_year.setText(_translate("about_dialog", "@2017"))
+        self.lbl_brand.setText(_translate("about_dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Noto Sans\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"www.mava.com.ar\"><span style=\" font-size:10pt; font-style:normal; text-decoration: underline; color:#2980b9;\">www.mava.com.ar</span></a></p></body></html>"))
+
+import resources_rc

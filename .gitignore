@@ -1,6 +1,9 @@
 # own
 
 */tmp/
+*/media/
+*.db
+
 # Created by https://www.gitignore.io/api/python,pycharm,git,linux,qt
 
 ### Python ###

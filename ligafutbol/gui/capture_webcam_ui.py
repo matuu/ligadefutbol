@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'capture_webcam_ui.ui'
+# Form implementation generated from reading ui file 'gui/capture_webcam_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -12,7 +12,7 @@ class Ui_dialog_capture_image(object):
     def setupUi(self, dialog_capture_image):
         dialog_capture_image.setObjectName("dialog_capture_image")
         dialog_capture_image.setWindowModality(QtCore.Qt.WindowModal)
-        dialog_capture_image.resize(661, 536)
+        dialog_capture_image.resize(661, 542)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -22,11 +22,14 @@ class Ui_dialog_capture_image(object):
         self.img_capture = QtWidgets.QLabel(dialog_capture_image)
         self.img_capture.setGeometry(QtCore.QRect(10, 10, 640, 480))
         self.img_capture.setAutoFillBackground(False)
-        self.img_capture.setStyleSheet("background-color: rgb(0, 170, 127);")
+        self.img_capture.setStyleSheet("")
         self.img_capture.setText("")
+        self.img_capture.setPixmap(QtGui.QPixmap(":/images/asserts/Flat-Camera-Icon.png"))
+        self.img_capture.setScaledContents(False)
+        self.img_capture.setAlignment(QtCore.Qt.AlignCenter)
         self.img_capture.setObjectName("img_capture")
         self.horizontalLayoutWidget = QtWidgets.QWidget(dialog_capture_image)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(8, 490, 641, 41))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(240, 500, 411, 41))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setSizeConstraint(QtWidgets.QLayout.SetFixedSize)
@@ -67,13 +70,4 @@ class Ui_dialog_capture_image(object):
         self.btn_save_capture.setText(_translate("dialog_capture_image", "Guardar"))
         self.btn_cancel_capture.setText(_translate("dialog_capture_image", "Cancelar"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    dialog_capture_image = QtWidgets.QDialog()
-    ui = Ui_dialog_capture_image()
-    ui.setupUi(dialog_capture_image)
-    dialog_capture_image.show()
-    sys.exit(app.exec_())
-
+import resources_rc
