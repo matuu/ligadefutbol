@@ -1,9 +1,9 @@
 # own
-
+*.sql
 */tmp/
 */media/
 *.db
-
+importar/
 # Created by https://www.gitignore.io/api/python,pycharm,git,linux,qt
 
 ### Python ###
