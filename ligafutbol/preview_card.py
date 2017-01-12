@@ -23,7 +23,7 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
         self.render_card.setFixedHeight(366)
         self.render_card.setFixedWidth(975)
         # self.setFixedSize(self.size())
-        with open(os.path.join(os.path.abspath("."), "asserts", "template.html")) as t:
+        with open(os.path.join(os.path.abspath("."), 'ligafutbol', "asserts", "template.html")) as t:
             template = t.read()
 
         html_ready_to_render = render_template(template, self.player.dict_to_render())
