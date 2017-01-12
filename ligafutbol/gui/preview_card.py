@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/preview_card.ui'
+# Form implementation generated from reading ui file 'src/preview_card.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -13,7 +13,7 @@ class Ui_dialog_preview_card(object):
         dialog_preview_card.setObjectName("dialog_preview_card")
         dialog_preview_card.setWindowModality(QtCore.Qt.ApplicationModal)
         dialog_preview_card.resize(975, 366)
-        dialog_preview_card.setStyleSheet("background-color: rgb(120, 130, 140);")
+        dialog_preview_card.setStyleSheet("")
         dialog_preview_card.setModal(True)
         self.verticalLayoutWidget = QtWidgets.QWidget(dialog_preview_card)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 971, 361))

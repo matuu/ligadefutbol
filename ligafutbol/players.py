@@ -188,6 +188,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
             self.player = player
         else:
             self.is_new = True
+            self.btn_print_card.setEnabled(False)
             self.player = Jugador()
             self.player.fecha_inscripcion = datetime.now()
         self.load_clubes_combo()
@@ -196,6 +197,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
         self.btn_save.clicked.connect(self.save_player)
         self.btn_cancel.clicked.connect(self.cancel)
         self.btn_change_photo.clicked.connect(self.open_camera)
+        self.btn_print_card.clicked.connect(self.show_preview_card)
 
     def load_clubes_combo(self):
         clubes = self.db.query(Club).all()
@@ -210,6 +212,11 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
             self.save_picture = True
             self.taken_picture = dialog_capture_image.capture  # QImage
             self.lbl_photo_player.setPixmap(QPixmap.fromImage(dialog_capture_image.capture))
+
+    def show_preview_card(self):
+        if not self.is_new:
+            preview_card = PreviewCardDialog(self.player, self.db)
+            preview_card.exec_()
 
     def save_player(self):
         self.get_player_from_view()

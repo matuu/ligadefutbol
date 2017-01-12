@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/club_edit.ui'
+# Form implementation generated from reading ui file 'src/club_edit.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -12,7 +12,7 @@ class Ui_club_edit(object):
     def setupUi(self, club_edit):
         club_edit.setObjectName("club_edit")
         club_edit.resize(359, 182)
-        club_edit.setStyleSheet("background-color: rgb(120, 130, 140);")
+        club_edit.setStyleSheet("")
         self.horizontalLayoutWidget = QtWidgets.QWidget(club_edit)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 130, 341, 41))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
@@ -27,23 +27,23 @@ class Ui_club_edit(object):
         self.btn_cancel.setStyleSheet("background-color: rgb(85, 170, 0);")
         self.btn_cancel.setObjectName("btn_cancel")
         self.horizontalLayout.addWidget(self.btn_cancel)
-        self.widget = QtWidgets.QWidget(club_edit)
-        self.widget.setGeometry(QtCore.QRect(10, 10, 341, 111))
-        self.widget.setObjectName("widget")
-        self.formLayout = QtWidgets.QFormLayout(self.widget)
+        self.layoutWidget = QtWidgets.QWidget(club_edit)
+        self.layoutWidget.setGeometry(QtCore.QRect(10, 10, 341, 111))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.formLayout = QtWidgets.QFormLayout(self.layoutWidget)
         self.formLayout.setFieldGrowthPolicy(QtWidgets.QFormLayout.ExpandingFieldsGrow)
         self.formLayout.setContentsMargins(5, 5, 5, 5)
         self.formLayout.setObjectName("formLayout")
-        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2 = QtWidgets.QLabel(self.layoutWidget)
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.label_2)
-        self.label_3 = QtWidgets.QLabel(self.widget)
+        self.label_3 = QtWidgets.QLabel(self.layoutWidget)
         self.label_3.setObjectName("label_3")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_3)
-        self.line_nombre = QtWidgets.QLineEdit(self.widget)
+        self.line_nombre = QtWidgets.QLineEdit(self.layoutWidget)
         self.line_nombre.setObjectName("line_nombre")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.line_nombre)
-        self.spin_numero = QtWidgets.QSpinBox(self.widget)
+        self.spin_numero = QtWidgets.QSpinBox(self.layoutWidget)
         self.spin_numero.setObjectName("spin_numero")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.spin_numero)
 
@@ -60,4 +60,4 @@ class Ui_club_edit(object):
         self.label_2.setText(_translate("club_edit", "Número:"))
         self.label_3.setText(_translate("club_edit", "Nombre:"))
 
-import resources_rc
+from . import resources_rc

@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
-import os
-import sys
 from datetime import datetime
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush, QImage, QPalette
-from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QDesktopWidget
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QDesktopWidget
 from PyQt5.QtWidgets import QLabel
 from sqlalchemy import func
 
@@ -83,16 +80,3 @@ class LigaDeFutbolApp(Ui_MainWindow):
         db = DBSession()
         players = db.query(Jugador).filter(func.date(Jugador.fecha_impresion) == datetime.today()).all()
         print(players)
-###################
-#  Event handler  #
-###################
-
-
-if __name__ == '__main__':
-    if not os.path.exists("media"):
-        os.makedirs("media")
-    app = QApplication(sys.argv)
-    MainWindow = LSFMainWindow()
-    liga_app = LigaDeFutbolApp(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/main.ui'
+# Form implementation generated from reading ui file 'src/main.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -79,4 +79,4 @@ class Ui_MainWindow(object):
         self.action_players_list.setText(_translate("MainWindow", "Jugadores"))
         self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de..."))
 
-import resources_rc
+from . import resources_rc

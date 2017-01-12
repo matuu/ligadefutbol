@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/about.ui'
+# Form implementation generated from reading ui file 'src/about.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -114,4 +114,5 @@ class Ui_about_dialog(object):
 "</style></head><body style=\" font-family:\'Noto Sans\'; font-size:12pt; font-weight:400; font-style:italic;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"www.mava.com.ar\"><span style=\" font-size:10pt; font-style:normal; text-decoration: underline; color:#2980b9;\">www.mava.com.ar</span></a></p></body></html>"))
 
-import resources_rc
+from . import resources_rc
+

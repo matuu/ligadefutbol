@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/clubs_list.ui'
+# Form implementation generated from reading ui file 'src/clubs_list.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -12,7 +12,7 @@ class Ui_dialog_clubs(object):
     def setupUi(self, dialog_clubs):
         dialog_clubs.setObjectName("dialog_clubs")
         dialog_clubs.resize(439, 486)
-        dialog_clubs.setStyleSheet("background-color: rgb(120, 130, 140);")
+        dialog_clubs.setStyleSheet("")
         dialog_clubs.setModal(True)
         self.gridLayoutWidget = QtWidgets.QWidget(dialog_clubs)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(9, 9, 421, 471))
@@ -81,4 +81,4 @@ class Ui_dialog_clubs(object):
         self.btn_delete_club.setText(_translate("dialog_clubs", "Eliminar"))
         self.btn_close_club.setText(_translate("dialog_clubs", "Cerrar"))
 
-import resources_rc
+from . import resources_rc

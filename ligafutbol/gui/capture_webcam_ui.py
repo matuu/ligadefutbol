@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/capture_webcam_ui.ui'
+# Form implementation generated from reading ui file 'src/capture_webcam_ui.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -70,4 +70,4 @@ class Ui_dialog_capture_image(object):
         self.btn_save_capture.setText(_translate("dialog_capture_image", "Guardar"))
         self.btn_cancel_capture.setText(_translate("dialog_capture_image", "Cancelar"))
 
-import resources_rc
+from . import resources_rc

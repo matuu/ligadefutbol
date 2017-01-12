@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/players_list.ui'
+# Form implementation generated from reading ui file 'src/players_list.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -12,7 +12,7 @@ class Ui_dialog_players(object):
     def setupUi(self, dialog_players):
         dialog_players.setObjectName("dialog_players")
         dialog_players.resize(757, 486)
-        dialog_players.setStyleSheet("background-color: rgb(120, 130, 140);")
+        dialog_players.setStyleSheet("")
         dialog_players.setModal(True)
         self.gridLayoutWidget = QtWidgets.QWidget(dialog_players)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(9, 9, 744, 471))
@@ -100,4 +100,4 @@ class Ui_dialog_players(object):
         self.btn_delete_player.setText(_translate("dialog_players", "Eliminar"))
         self.btn_close_players.setText(_translate("dialog_players", "Cerrar"))
 
-import resources_rc
+from . import resources_rc

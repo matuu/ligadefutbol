@@ -90,7 +90,7 @@ class Jugador(Base):
 
     @classmethod
     def get_default_avatar(cls):
-        return os.path.join(os.path.abspath('.'), 'asserts', 'default-user.png')
+        return os.path.join(os.path.abspath('.'), 'ligafutbol', 'asserts', 'default-user.png')
 
     def verify(self):
         errors = []

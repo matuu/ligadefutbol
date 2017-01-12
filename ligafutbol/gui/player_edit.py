@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui/player_edit.ui'
+# Form implementation generated from reading ui file 'src/player_edit.ui'
 #
 # Created by: PyQt5 UI code generator 5.7.1
 #
@@ -12,7 +12,7 @@ class Ui_player_edit(object):
     def setupUi(self, player_edit):
         player_edit.setObjectName("player_edit")
         player_edit.resize(625, 535)
-        player_edit.setStyleSheet("background-color: rgb(120, 130, 140);")
+        player_edit.setStyleSheet("")
         self.gridLayoutWidget = QtWidgets.QWidget(player_edit)
         self.gridLayoutWidget.setGeometry(QtCore.QRect(9, 9, 611, 465))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
@@ -199,4 +199,4 @@ class Ui_player_edit(object):
         self.btn_save.setText(_translate("player_edit", "Guardar"))
         self.btn_cancel.setText(_translate("player_edit", "Cancelar"))
 
-import resources_rc
+from . import resources_rc
