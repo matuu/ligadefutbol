@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="resources.qrc">
-    <normaloff>:/images/asserts/icon-200.ico</normaloff>:/images/asserts/icon-200.ico</iconset>
+    <normaloff>:/images/asserts/logo-lsf.svg</normaloff>:/images/asserts/logo-lsf.svg</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -33,14 +33,14 @@
      <x>0</x>
      <y>0</y>
      <width>818</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(120, 130, 140);</string>
+    <string notr="true"/>
    </property>
    <widget class="QMenu" name="menuArchivo">
     <property name="enabled">
@@ -97,7 +97,7 @@
     <bool>true</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(120, 130, 140);</string>
+    <string notr="true">background-color: rgba(217, 217, 217, 230);</string>
    </property>
   </widget>
   <action name="actionSalir">

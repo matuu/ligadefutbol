@@ -15,10 +15,10 @@ def random_string():
     return ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(8))
 
 
-def render_template(html, dict):
+def render_template(svg, dict):
     for var in dict.keys():
-        html = html.replace("[{}]".format(var), str(dict[var]))
-    return html
+        svg = svg.replace("[{}]".format(var), str(dict[var]))
+    return svg
 
 
 class LSFDialog(QDialog):
@@ -27,4 +27,4 @@ class LSFDialog(QDialog):
     """
     def __init__(self, **args):
         super().__init__(**args)
-        self.setWindowIcon(QIcon(":/images/asserts/icon-200.ico"))
+        self.setWindowIcon(QIcon(":/images/asserts/logo-lsf.svg"))

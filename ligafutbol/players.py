@@ -117,6 +117,7 @@ class PlayerListView(LSFDialog, Ui_dialog_players):
             self.model.set_filter(None)
 
     def refresh(self):
+        self.db.rollback()
         self.model.refresh()
         self.table_list_players.selectRow(0)
         self.show_photo_player()
@@ -131,7 +132,7 @@ class PlayerListView(LSFDialog, Ui_dialog_players):
             img_path = Jugador.get_default_avatar()
         img = QPixmap(img_path)
         self.lbl_photo_player.setPixmap(img.scaled(
-            self.lbl_photo_player.size(), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            self.lbl_photo_player.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation))
 
     def open_new_player(self):
         new_player_dialog = PlayerEditView(session=self.db)
@@ -164,7 +165,7 @@ class PlayerListView(LSFDialog, Ui_dialog_players):
     def show_preview_card(self):
         player = self.get_selected_player()
         if player:
-            preview_card = PreviewCardDialog(player, self.db)
+            preview_card = PreviewCardDialog(parent=self, player=player, db=self.db)
             preview_card.exec_()
 
     def get_selected_player(self):
@@ -202,6 +203,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
     def load_clubes_combo(self):
         clubes = self.db.query(Club).all()
         self.cmb_clubes.clear()
+        self.cmb_clubes.addItem("--- Seleccionar ---", -1)
         for club in clubes:
             self.cmb_clubes.addItem(club.nombre, club.id)
 
@@ -214,11 +216,16 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
             self.lbl_photo_player.setPixmap(QPixmap.fromImage(dialog_capture_image.capture))
 
     def show_preview_card(self):
-        if not self.is_new:
-            preview_card = PreviewCardDialog(self.player, self.db)
-            preview_card.exec_()
+        ret = QMessageBox.question(self, '¿Guardar primero?',
+                                   "Se guardaran los cambios antes de imprimir la credencial. ¿Contiuar?.",
+                                   QMessageBox.Yes, QMessageBox.No)
 
-    def save_player(self):
+        if ret == QMessageBox.Yes:
+            if self.save_player(close_success=False) and not self.is_new:
+                preview_card = PreviewCardDialog(self, self.player, self.db)
+                preview_card.exec_()
+
+    def save_player(self, close_success=True):
         self.get_player_from_view()
         errors = self.player.verify()
         if not errors:
@@ -231,19 +238,22 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
                 self.player.fecha_renovacion = datetime.now()
             self.db.add(self.player)
             self.db.commit()
-            if self.is_new:
-                QMessageBox.information(
-                    self, "Jugador almacenado", "El jugador {} {} fue guardado con éxito.".format(
-                        self.player.nombre, self.player.apellido))
-            else:
-                QMessageBox.information(
-                    self, "Jugador actualizado", "El jugador {} {} fue actualizado correctamente.".format(
-                        self.player.nombre, self.player.apellido))
-            self.close()
+            if close_success:
+                if self.is_new:
+                    QMessageBox.information(
+                        self, "Jugador almacenado", "El jugador {} {} fue guardado con éxito.".format(
+                            self.player.nombre, self.player.apellido))
+                else:
+                    QMessageBox.information(
+                        self, "Jugador actualizado", "El jugador {} {} fue actualizado correctamente.".format(
+                            self.player.nombre, self.player.apellido))
+                self.close()
+            return True
         else:
             error_msg = "\n".join(errors)
             QMessageBox.critical(self, "Error de validación",
                                  "Ocurrieron algunos errores:\n{}".format(error_msg), QMessageBox.Ok)
+            return False
 
     def cancel(self):
         ret = QMessageBox.question(self, '¿Cerrar?', "¿Seguro que desea salir? Perderá los cambios no guardados.",
@@ -269,7 +279,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
         self.pin_division.setValue(self.player.division or 0)
         self.txt_observaciones.setText(self.player.observaciones)
         if self.player.fecha_renovacion:
-            self.lbl_fecha_renovacion.setText(self.player.fecha_renovacion.strftime("%d/%m/%Y %H1:%M"))
+            self.lbl_fecha_renovacion.setText(self.player.fecha_renovacion.strftime("%d/%m/%Y %H:%M"))
         self.lbl_fecha_vigencia.setText(self.player.vigencia.strftime("%d/%m/%Y") if self.player.vigencia else '')
         # avatar
         if os.path.exists(self.player.avatar):
@@ -292,5 +302,4 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
         self.player.fecha_inscripcion = self.date_fecha_incripcion.date().toPyDate() or None
         self.player.division = self.pin_division.value()
         self.player.observaciones = self.txt_observaciones.toPlainText()
-        if self.cmb_clubes.currentIndex():
-            self.player.club_id = self.cmb_clubes.itemData(self.cmb_clubes.currentIndex())
+        self.player.club_id = self.cmb_clubes.itemData(self.cmb_clubes.currentIndex())

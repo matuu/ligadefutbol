@@ -104,6 +104,8 @@ class Jugador(Base):
                 errors.append("El DNI es obligatorio")
         except ValueError:
             errors.append("El DNI deben ser sólo números.")
+        if not self.club_id or self.club_id <= 0:
+            errors.append("Seleccione el club del jugador.")
         return errors
 
     def dict_to_render(self):
@@ -119,11 +121,10 @@ class Jugador(Base):
             'apellido': self.apellido,
             'nombre': self.nombre,
             'dni': self.dni,
-            'lugar': self.lugar_nac,
-            'provincia': self.provincia,
+            'lugar_nac': "{}, {}".format(self.lugar_nac, self.provincia),
             'fecha_nac': self.fecha_nac.strftime("%d/%m/%Y"),
-            'año': self.vigencia.year,
-            'fecha_vigencia': self.vigencia.strftime("%d/%m/%Y")
+            'anio': self.vigencia.year,
+            'vigencia': self.vigencia.strftime("%d/%m/%Y")
         }
 
 # Conservar al final
