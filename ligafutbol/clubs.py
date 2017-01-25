@@ -1,5 +1,6 @@
 from PyQt5.QtCore import QAbstractTableModel, QVariant, Qt
 from PyQt5.QtWidgets import QMessageBox, QHeaderView
+from sqlalchemy import func
 
 from ligafutbol.gui.club_edit import Ui_club_edit
 from ligafutbol.gui.clubs_list import Ui_dialog_clubs
@@ -145,6 +146,10 @@ class ClubEditView(LSFDialog, Ui_club_edit):
         else:
             self.is_new = True
             self.club = Club()
+            try:
+                self.club.numero = int(self.db.query(func.max(Club.numero).label('last_num')).one().last_num) + 1
+            except TypeError:
+                self.club.numero = 1
 
         self.set_club_to_view()
 

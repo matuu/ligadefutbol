@@ -217,15 +217,15 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
 
     def show_preview_card(self):
         ret = QMessageBox.question(self, '¿Guardar primero?',
-                                   "Se guardaran los cambios antes de imprimir la credencial. ¿Contiuar?.",
+                                   "Se guardarán los cambios antes de imprimir la credencial. ¿Continuar?.",
                                    QMessageBox.Yes, QMessageBox.No)
 
         if ret == QMessageBox.Yes:
-            if self.save_player(close_success=False) and not self.is_new:
+            if self.save_player(no_close_on_success=True) and not self.is_new:
                 preview_card = PreviewCardDialog(self, self.player, self.db)
                 preview_card.exec_()
 
-    def save_player(self, close_success=True):
+    def save_player(self, no_close_on_success=False):
         self.get_player_from_view()
         errors = self.player.verify()
         if not errors:
@@ -238,7 +238,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
                 self.player.fecha_renovacion = datetime.now()
             self.db.add(self.player)
             self.db.commit()
-            if close_success:
+            if not no_close_on_success:
                 if self.is_new:
                     QMessageBox.information(
                         self, "Jugador almacenado", "El jugador {} {} fue guardado con éxito.".format(
