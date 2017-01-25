@@ -1,3 +1,6 @@
 PyQt5==5.7.1
 pygame==1.9.3
+# en windows, comentar linea de arriba e instalar los whl de la carpeta deps
+# pygame
+# VideoCapture
 SQLAlchemy==0.7.10

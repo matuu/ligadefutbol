@@ -31,7 +31,10 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
         # reemplazamos todos los campos especiales con la información e imagen del jugador
         # escribimos un archivo temporal para renderizarlo en la vista, y posteriormente imprimirlo.
         template_path = os.path.join(os.path.abspath("."), 'ligafutbol', "asserts", "template.svg")
-        tmp_svg_path = os.path.join(os.path.abspath("."), "tmp", "card.svg")
+        tmp_folder = os.path.join(os.path.abspath("."), "tmp")
+        if not os.path.exists(tmp_folder):
+            os.makedirs(tmp_folder)
+        tmp_svg_path = os.path.join(tmp_folder, "card.svg")
         with open(template_path, 'r')as f:
             template_svg_data = f.read()
         svg_data = render_template(template_svg_data, self.player.dict_to_render())
