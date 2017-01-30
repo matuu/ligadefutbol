@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from PyQt5.QtCore import QFile
+from PyQt5.QtCore import QTextStream
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush, QImage, QPalette
-from PyQt5.QtWidgets import QMainWindow, QMessageBox, QDesktopWidget
+from PyQt5.QtWidgets import QMainWindow, QMessageBox, QDesktopWidget, qApp
 from PyQt5.QtWidgets import QLabel
 from sqlalchemy import func
 
@@ -53,6 +55,11 @@ class LigaDeFutbolApp(Ui_MainWindow):
         self.init_ui()
 
     def init_ui(self):
+        file = QFile(":/styles/style.qss")
+        if file.open(QFile.ReadOnly | QFile.Text):
+            ts = QTextStream(file)
+            stylesheet = ts.readAll()
+            qApp.setStyleSheet(stylesheet)
         lbl_version = QLabel()
         lbl_version.setText("Versión: {}".format(VERSION))
         self.statusbar.addWidget(lbl_version)

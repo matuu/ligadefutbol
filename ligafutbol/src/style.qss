@@ -1,0 +1,14 @@
+QPushButton {
+  background-color: rgb(85, 170, 0);
+  border-style: outset;
+  border-width: 2px;
+  border-color: rgb(80, 160, 0);
+  font: bold 14px;
+  border-radius: 5px;
+  min-width: 5em;
+  padding: 4px;
+}
+QPushButton:pressed {
+  background-color: rgb(90, 175, 5);
+  border-style: inset;
+}

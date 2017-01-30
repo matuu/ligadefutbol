@@ -1,11 +1,14 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>../asserts/icon-200.png</file>
-        <file>../asserts/fondo_liga.png</file>
-        <file>../asserts/mava.png</file>
-        <file>../asserts/overlay.png</file>
-        <file>../asserts/Flat-Camera-Icon.png</file>
-        <file>../asserts/default-user.png</file>
-        <file>../asserts/logo-lsf.svg</file>
-    </qresource>
+  <qresource prefix="/images">
+    <file>../asserts/icon-200.png</file>
+    <file>../asserts/fondo_liga.png</file>
+    <file>../asserts/mava.png</file>
+    <file>../asserts/overlay.png</file>
+    <file>../asserts/Flat-Camera-Icon.png</file>
+    <file>../asserts/default-user.png</file>
+    <file>../asserts/logo-lsf.svg</file>
+  </qresource>
+  <qresource prefix="styles">
+    <file>style.qss</file>
+  </qresource>
 </RCC>

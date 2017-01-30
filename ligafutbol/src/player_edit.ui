@@ -257,7 +257,7 @@ color: rgb(85, 0, 0);</string>
       <item>
        <widget class="QPushButton" name="btn_change_photo">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 170, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Cambiar foto...</string>
@@ -294,7 +294,7 @@ color: rgb(85, 0, 0);</string>
     <item>
      <widget class="QPushButton" name="btn_print_card">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Imprimir credencial</string>
@@ -304,7 +304,7 @@ color: rgb(85, 0, 0);</string>
     <item>
      <widget class="QPushButton" name="btn_save">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Guardar</string>
@@ -314,7 +314,7 @@ color: rgb(85, 0, 0);</string>
     <item>
      <widget class="QPushButton" name="btn_cancel">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Cancelar</string>
@@ -343,7 +343,7 @@ color: rgb(85, 0, 0);</string>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
-  <include location="../resources.qrc"/>
+  <include location="resources.qrc"/>
  </resources>
  <connections/>
 </ui>

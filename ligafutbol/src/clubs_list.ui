@@ -44,7 +44,7 @@
        <bool>false</bool>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Buscar</string>
@@ -65,7 +65,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 170, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Nuevo</string>
@@ -84,7 +84,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 170, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Editar</string>
@@ -100,7 +100,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 170, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Eliminar</string>
@@ -116,7 +116,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 170, 0);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Cerrar</string>

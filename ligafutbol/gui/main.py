@@ -22,7 +22,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 818, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 818, 25))
         self.menubar.setAutoFillBackground(False)
         self.menubar.setStyleSheet("")
         self.menubar.setObjectName("menubar")

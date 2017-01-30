@@ -29,7 +29,7 @@
     <item>
      <widget class="QPushButton" name="btn_save">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Guardar</string>
@@ -39,7 +39,7 @@
     <item>
      <widget class="QPushButton" name="btn_cancel">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(85, 170, 0);</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Cancelar</string>

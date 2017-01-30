@@ -115,4 +115,3 @@ class Ui_about_dialog(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"www.mava.com.ar\"><span style=\" font-size:10pt; font-style:normal; text-decoration: underline; color:#2980b9;\">www.mava.com.ar</span></a></p></body></html>"))
 
 from . import resources_rc
-
