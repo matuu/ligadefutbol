@@ -5,7 +5,7 @@ from sqlalchemy import func
 from ligafutbol.gui.club_edit import Ui_club_edit
 from ligafutbol.gui.clubs_list import Ui_dialog_clubs
 from ligafutbol.models import DBSession, Club
-from ligafutbol.utils import LSFDialog
+from ligafutbol.utils import LSFDialog, pregunta_sino
 
 
 class ClubTableModel(QAbstractTableModel):
@@ -111,10 +111,9 @@ class ClubListView(LSFDialog, Ui_dialog_clubs):
     def delete_club(self):
         club = self.get_selected_club()
         if club:
-            ret = QMessageBox.question(
-                self, '¿Eliminar club?', "¿Seguro que desea eliminar el club {} (NUM: {})? Esta acción "
-                                         "no puede revertirse.".format(club.nombre, club.numero),
-                QMessageBox.Yes, QMessageBox.No)
+            ret = pregunta_sino('¿Eliminar club?',
+                                "¿Seguro que desea eliminar el club {} (NUM: {})? Esta acción "
+                                "no puede revertirse.".format(club.nombre, club.numero))
 
             if ret == QMessageBox.Yes:
                 self.db.delete(club)
@@ -185,8 +184,7 @@ class ClubEditView(LSFDialog, Ui_club_edit):
                                  "Ocurrieron algunos errores:\n{}".format(error_msg), QMessageBox.Ok)
 
     def cancel(self):
-        ret = QMessageBox.question(self, '¿Cerrar?', "¿Seguro que desea salir? Perderá los cambios no guardados.",
-                                   QMessageBox.Yes, QMessageBox.No)
+        ret = pregunta_sino('¿Cerrar?', "¿Seguro que desea salir? Perderá los cambios no guardados.")
 
         if ret == QMessageBox.Yes:
             self.db.rollback()

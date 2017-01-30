@@ -12,7 +12,7 @@ from ligafutbol.gui.player_edit import Ui_player_edit
 from ligafutbol.gui.players_list import Ui_dialog_players
 from ligafutbol.models import DBSession, Jugador, Club
 from ligafutbol.preview_card import PreviewCardDialog
-from ligafutbol.utils import slugify, LSFDialog
+from ligafutbol.utils import slugify, LSFDialog, pregunta_sino
 
 
 class PlayerTableModel(QAbstractTableModel):
@@ -149,10 +149,9 @@ class PlayerListView(LSFDialog, Ui_dialog_players):
     def delete_player(self):
         player = self.get_selected_player()
         if player:
-            ret = QMessageBox.question(self, '¿Eliminar jugador?',
-                                       "¿Seguro que desea eliminar el jugador {} {}? Esta acción no "
-                                       "puede revertirse.".format(player.nombre, player.apellido),
-                                       QMessageBox.Yes, QMessageBox.No)
+            ret = pregunta_sino('¿Eliminar jugador?',
+                                "¿Seguro que desea eliminar el jugador {} {}? Esta acción no "
+                                "puede revertirse.".format(player.nombre, player.apellido))
 
             if ret == QMessageBox.Yes:
                 self.db.delete(player)
@@ -216,10 +215,8 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
             self.lbl_photo_player.setPixmap(QPixmap.fromImage(dialog_capture_image.capture))
 
     def show_preview_card(self):
-        ret = QMessageBox.question(self, '¿Guardar primero?',
-                                   "Se guardarán los cambios antes de imprimir la credencial. ¿Continuar?.",
-                                   QMessageBox.Yes, QMessageBox.No)
-
+        ret = pregunta_sino('¿Guardar primero?',
+                            "Se guardarán los cambios antes de imprimir la credencial. ¿Continuar?.")
         if ret == QMessageBox.Yes:
             if self.save_player(no_close_on_success=True) and not self.is_new:
                 preview_card = PreviewCardDialog(self, self.player, self.db)
@@ -256,9 +253,7 @@ class PlayerEditView(LSFDialog, Ui_player_edit):
             return False
 
     def cancel(self):
-        ret = QMessageBox.question(self, '¿Cerrar?', "¿Seguro que desea salir? Perderá los cambios no guardados.",
-                                   QMessageBox.Yes, QMessageBox.No)
-
+        ret = pregunta_sino('¿Cerrar?', "¿Seguro que desea salir? Perderá los cambios no guardados.")
         if ret == QMessageBox.Yes:
             self.db.rollback()
             self.close()

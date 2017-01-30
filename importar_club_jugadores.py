@@ -18,7 +18,6 @@ if __name__ == '__main__':
         raise RuntimeError("Por favor, coloque el csv de los clubes en la carpeta importar.")
     if not os.path.isfile(JUGADOR_PATH):
         raise RuntimeError("Por favor, coloque el csv de los jugadores en la carpeta importar.")
-    import ipdb;ipdb.set_trace()
     db = DBSession()
     # import clubes
     with open(CLUB_PATH, newline='') as csvfile:

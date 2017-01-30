@@ -3,7 +3,7 @@ import string
 from datetime import datetime
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QDialog, QMessageBox
 
 
 def slugify(txt):
@@ -19,6 +19,20 @@ def render_template(svg, dict):
     for var in dict.keys():
         svg = svg.replace("[{}]".format(var), str(dict[var]))
     return svg
+
+
+def pregunta_sino(title, message):
+    box = QMessageBox()
+    box.setIcon(QMessageBox.Question)
+    box.setWindowTitle(title)
+    box.setText(message)
+    box.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+    buttonY = box.button(QMessageBox.Yes)
+    buttonY.setText('Si')
+    buttonN = box.button(QMessageBox.No)
+    buttonN.setText('No')
+    result = box.exec_()
+    return result
 
 
 class LSFDialog(QDialog):

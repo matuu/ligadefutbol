@@ -13,13 +13,13 @@ from ligafutbol.clubs import ClubListView
 from ligafutbol.gui.main import Ui_MainWindow
 from ligafutbol.models import DBSession, Jugador
 from ligafutbol.players import PlayerListView
+from ligafutbol.utils import pregunta_sino
 from ligafutbol import VERSION
 
 
 class LSFMainWindow(QMainWindow):
     def closeEvent(self, event):
-        reply = QMessageBox.question(
-            self, 'Salir', "¿Seguro que desea salir?", QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        reply = pregunta_sino('Salir', "¿Seguro que desea salir?")
         if reply == QMessageBox.Yes:
             event.accept()
         else:
@@ -60,6 +60,7 @@ class LigaDeFutbolApp(Ui_MainWindow):
             ts = QTextStream(file)
             stylesheet = ts.readAll()
             qApp.setStyleSheet(stylesheet)
+
         lbl_version = QLabel()
         lbl_version.setText("Versión: {}".format(VERSION))
         self.statusbar.addWidget(lbl_version)
