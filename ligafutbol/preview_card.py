@@ -1,19 +1,13 @@
 import os
 from datetime import datetime
 
-from PyQt5.QtCore import QMarginsF
-from PyQt5.QtCore import QRectF
 from PyQt5.QtCore import QSizeF
 from PyQt5.QtGui import QImage
-from PyQt5.QtGui import QPageLayout
 from PyQt5.QtGui import QPageSize
 from PyQt5.QtGui import QPainter
 from PyQt5.QtGui import QPixmap
-from PyQt5.QtGui import QTextDocument
 from PyQt5.QtPrintSupport import QPrinter
-from PyQt5.QtSvg import QSvgWidget, QSvgRenderer
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import QLabel
+from PyQt5.QtSvg import QSvgRenderer
 from PyQt5.QtWidgets import QMessageBox
 
 from ligafutbol.gui.preview_card import Ui_dialog_preview_card

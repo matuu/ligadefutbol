@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 import os
 import sys
 
@@ -7,7 +6,7 @@ from PyQt5.QtWidgets import QApplication
 from ligafutbol.app import LSFMainWindow, LigaDeFutbolApp
 
 
-if __name__ == '__main__':
+def main():
     if not os.path.exists("media"):
         os.makedirs("media")
     app = QApplication(sys.argv)
@@ -20,3 +19,7 @@ if __name__ == '__main__':
     liga_app = LigaDeFutbolApp(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()

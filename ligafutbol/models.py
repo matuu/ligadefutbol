@@ -3,8 +3,8 @@ import os
 from datetime import datetime
 
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, func, Text
-from sqlalchemy.orm import relationship, sessionmaker, backref, scoped_session
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func, Text
+from sqlalchemy.orm import relationship, sessionmaker, scoped_session
 from sqlalchemy import create_engine
 
 
@@ -22,6 +22,7 @@ Base = declarative_base(cls=Base)
 
 DATABASE_PATH = 'ligadefutbol.db'
 DATABASE_CONNECTION_INFO = 'sqlite:///' + DATABASE_PATH
+
 db_engine = create_engine(DATABASE_CONNECTION_INFO, echo=False)
 DBSession = scoped_session(sessionmaker(autoflush=True, autocommit=False, bind=db_engine))
 

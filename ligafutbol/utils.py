@@ -1,6 +1,5 @@
 import random
 import string
-from datetime import datetime
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QDialog, QMessageBox
