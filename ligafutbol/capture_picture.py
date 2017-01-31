@@ -22,18 +22,18 @@ class CaptureWebcam(QDialog, capture_webcam_ui.Ui_dialog_capture_image):
         else:
             self.btn_take_capture.setDisabled(True)
             self.btn_save_capture.setDisabled(True)
+            QMessageBox.critical(self, "Camara no encontrada",
+                                 "No fue posible encontrar la camara. Por favor, verifique está enchufada y encendida.")
 
     def setup_camera(self):
         """Initialize camera.
         """
         camera.init()
-        if len(camera.list_cameras()) > 0:
-            QMessageBox.critical(self, "Camara no encontrada",
-                                 "No fue posible encontrar la camara. Por favor, verifique está enchufada y encendida.")
+        try:
+            self.cam = camera.Camera(camera.list_cameras()[0])
+            self.cam.start()
+        except Exception:
             return False
-        self.cam = camera.Camera(camera.list_cameras()[0])
-        self.cam.start()
-
         self.timer = QTimer()
         self.timer.timeout.connect(self.display_video_stream)
         self.timer.start(30)
