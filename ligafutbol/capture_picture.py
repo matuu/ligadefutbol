@@ -1,6 +1,7 @@
 from PyQt5.QtCore import QRect, QTimer
 from PyQt5.QtGui import QPainter, QImage, QPixmap
 from PyQt5.QtWidgets import QDialog
+from PyQt5.QtWidgets import QMessageBox
 from pygame import camera, image as py_image
 
 from ligafutbol.gui import capture_webcam_ui
@@ -15,14 +16,21 @@ class CaptureWebcam(QDialog, capture_webcam_ui.Ui_dialog_capture_image):
         self.btn_cancel_capture.clicked.connect(self.cancel_action)
         self.btn_take_capture.clicked.connect(self.capture_image)
         self.btn_save_capture.clicked.connect(self.save_capture)
-        self.setup_camera()
-        self.pic_capture = None
-        self.cancel = True
+        if self.setup_camera():
+            self.pic_capture = None
+            self.cancel = True
+        else:
+            self.btn_take_capture.setDisabled(True)
+            self.btn_save_capture.setDisabled(True)
 
     def setup_camera(self):
         """Initialize camera.
         """
         camera.init()
+        if len(camera.list_cameras()) > 0:
+            QMessageBox.critical(self, "Camara no encontrada",
+                                 "No fue posible encontrar la camara. Por favor, verifique está enchufada y encendida.")
+            return False
         self.cam = camera.Camera(camera.list_cameras()[0])
         self.cam.start()
 
@@ -30,6 +38,7 @@ class CaptureWebcam(QDialog, capture_webcam_ui.Ui_dialog_capture_image):
         self.timer.timeout.connect(self.display_video_stream)
         self.timer.start(30)
         self.overlay = QImage(":/images/asserts/overlay.png")
+        return True
 
     def display_video_stream(self):
         """Read frame from camera and repaint QLabel widget.
@@ -66,8 +75,11 @@ class CaptureWebcam(QDialog, capture_webcam_ui.Ui_dialog_capture_image):
             self.safe_close()
 
     def safe_close(self):
-        self.cam.stop()
-        camera.quit()
+        try:
+            self.cam.stop()
+            camera.quit()
+        except AttributeError:
+            pass
         self.close()
 
     def cancel_action(self):

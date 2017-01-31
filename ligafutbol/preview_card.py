@@ -11,7 +11,7 @@ from PyQt5.QtSvg import QSvgRenderer
 from PyQt5.QtWidgets import QMessageBox
 
 from ligafutbol.gui.preview_card import Ui_dialog_preview_card
-from ligafutbol.utils import LSFDialog, render_template
+from ligafutbol.utils import LSFDialog, render_template, get_application_folder, get_asserts_dir
 
 
 class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
@@ -24,8 +24,8 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
         # cargamos un template con el diseño del carnet, y campos especiales. ej: [club]
         # reemplazamos todos los campos especiales con la información e imagen del jugador
         # escribimos un archivo temporal para renderizarlo en la vista, y posteriormente imprimirlo.
-        template_path = os.path.join(os.path.abspath("."), 'ligafutbol', "asserts", "template.svg")
-        tmp_folder = os.path.join(os.path.abspath("."), "tmp")
+        template_path = get_asserts_dir("template.svg")
+        tmp_folder = get_application_folder("tmp")
         if not os.path.exists(tmp_folder):
             os.makedirs(tmp_folder)
         tmp_svg_path = os.path.join(tmp_folder, "card.svg")

@@ -3,18 +3,17 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from ligafutbol.app import LSFMainWindow, LigaDeFutbolApp
+from ligafutbol.utils import get_application_folder, exists_or_create_folder
 
 
 def main():
-    if not os.path.exists("media"):
-        os.makedirs("media")
-    app = QApplication(sys.argv)
-    # localization
-    # qt_translator = QTranslator()
-    # if qt_translator.load("qt_" + QLocale.system().name(), QLibraryInfo.location(QLibraryInfo.TranslationsPath)):
-    #     app.installTranslator(qt_translator)
+    exists_or_create_folder(get_application_folder())
+    exists_or_create_folder(get_application_folder("media"))
+    exists_or_create_folder(get_application_folder("db"))
 
+    app = QApplication(sys.argv)
+    # importo acá, para estar seguro que existen las carpetas necesarias
+    from ligafutbol.app import LSFMainWindow, LigaDeFutbolApp
     MainWindow = LSFMainWindow()
     liga_app = LigaDeFutbolApp(MainWindow)
     MainWindow.show()

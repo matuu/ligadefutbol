@@ -1,11 +1,14 @@
 import base64
 import os
+import sys
 from datetime import datetime
 
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, func, Text
 from sqlalchemy.orm import relationship, sessionmaker, scoped_session
 from sqlalchemy import create_engine
+
+from ligafutbol.utils import get_application_folder, get_asserts_dir
 
 
 class Base(object):
@@ -20,7 +23,7 @@ class Base(object):
 
 Base = declarative_base(cls=Base)
 
-DATABASE_PATH = 'ligadefutbol.db'
+DATABASE_PATH = get_application_folder("db", 'ligadefutbol.db')
 DATABASE_CONNECTION_INFO = 'sqlite:///' + DATABASE_PATH
 
 db_engine = create_engine(DATABASE_CONNECTION_INFO, echo=False)
@@ -77,7 +80,7 @@ class Jugador(Base):
     @property
     def avatar(self):
         if self.foto:
-            return os.path.join(os.path.abspath('.'), 'media', self.foto)
+            return get_application_folder('media', self.foto)
         return self.get_default_avatar()
 
     @property
@@ -91,7 +94,7 @@ class Jugador(Base):
 
     @classmethod
     def get_default_avatar(cls):
-        return os.path.join(os.path.abspath('.'), 'ligafutbol', 'asserts', 'default-user.png')
+        return get_asserts_dir('default-user.png')
 
     def verify(self):
         errors = []

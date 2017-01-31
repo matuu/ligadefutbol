@@ -4,7 +4,7 @@ from cx_Freeze import Executable, setup
 from ligafutbol import VERSION
 
 
-company_name = 'MAVA'
+company_name = 'MAVA Ing'
 product_name = 'Liga Sanrafaelina de Futbol'
 
 bdist_msi_options = {
@@ -15,7 +15,7 @@ bdist_msi_options = {
 
 build_exe_options = {
     'packages': ['sys', 'os', 'pygame', 'random', 'string', 'base64', 'datetime', 'uuid',
-                 # 'sqlite3', 'sqlalchemy.dialects.sqlite',
+                 'sqlite3', 'sqlalchemy.dialects.sqlite',
     ],
     'excludes': ['tkinter', 'PyQt5.QtSql'],
     'includes': ['atexit', ],
@@ -39,7 +39,7 @@ exe = Executable(
 setup(
     name=product_name,
     version=VERSION,
-    author = "MAVA",
+    author = "MAVA Ing.",
     author_email = "matias@mava.com.ar",
     description=u'Gestión de jugadores y clubes. Impresión de credenciales',
     executables=[exe],
