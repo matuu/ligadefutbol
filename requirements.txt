@@ -4,3 +4,7 @@ pygame==1.9.3
 # pygame
 # VideoCapture
 SQLAlchemy==0.7.10
+xlsxwriter>=0.9.6
+
+# para crear el instalador
+# cx_Freeze
