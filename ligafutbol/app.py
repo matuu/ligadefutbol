@@ -111,8 +111,7 @@ class LigaDeFutbolApp(Ui_MainWindow):
             if sys.platform.startswith('linux'):
                 subprocess.call(["xdg-open", file_path])
             else:
-                # os.startfile(file_path)
-                os.system('start "{}"'.format(file_path))  # a total guess
+                os.startfile(file_path)
             QMessageBox.information(None, "Reporte generado",
                                     "El reporte se encuentra en {}.".format(file_path))
         else:
