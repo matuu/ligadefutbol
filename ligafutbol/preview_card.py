@@ -1,9 +1,7 @@
 import os
 from datetime import datetime
 
-from PyQt5.QtCore import QSizeF
 from PyQt5.QtGui import QImage
-from PyQt5.QtGui import QPageSize
 from PyQt5.QtGui import QPainter
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtPrintSupport import QPrinter
@@ -24,28 +22,44 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
         # cargamos un template con el diseño del carnet, y campos especiales. ej: [club]
         # reemplazamos todos los campos especiales con la información e imagen del jugador
         # escribimos un archivo temporal para renderizarlo en la vista, y posteriormente imprimirlo.
-        template_path = get_asserts_dir("template.svg")
+
+        # Tenemos un svg para mostrarlo, y otro para la impresora. Solución para la orientación de la impresora
+        template_preview_path = get_asserts_dir("template_preview.svg")
+        template_print_path = get_asserts_dir("template_printer.svg")
         tmp_folder = get_application_folder("tmp")
         if not os.path.exists(tmp_folder):
             os.makedirs(tmp_folder)
-        tmp_svg_path = os.path.join(tmp_folder, "card.svg")
-        with open(template_path, 'r')as f:
+        tmp_svg_preview_path = os.path.join(tmp_folder, "card_preview.svg")
+        tmp_svg_printer_path = os.path.join(tmp_folder, "card_print.svg")
+        with open(template_preview_path, 'r')as f:
             template_svg_data = f.read()
+        with open(template_print_path, 'r')as f:
+            template_svg_data_print = f.read()
         svg_data = render_template(template_svg_data, self.player.dict_to_render())
-        tmp_file = open(tmp_svg_path, 'w')
+        svg_print_data = render_template(template_svg_data_print, self.player.dict_to_render())
+        tmp_file = open(tmp_svg_preview_path, 'w')
         tmp_file.write(svg_data)
         tmp_file.close()
+        tmp_file = open(tmp_svg_printer_path, 'w')
+        tmp_file.write(svg_print_data)
+        tmp_file.close()
+
+        self.renderer = QSvgRenderer()
+        self.renderer.load(tmp_svg_printer_path)
+        if not self.renderer.isValid():
+            self.btn_print.setEnabled(False)
+            return
 
         # Crear vista previa
         image = QImage(793.7, 340.15, QImage.Format_ARGB32_Premultiplied)
         image.fill(0xaa888888)
         # Renderizamos el svg tempral dentro del QImage
         # Luego este será el pixmap del Qlabel
-        self.renderer = QSvgRenderer()
-        self.renderer.load(tmp_svg_path)
-        if self.renderer.isValid():
+        renderer_preview = QSvgRenderer()
+        renderer_preview.load(tmp_svg_preview_path)
+        if renderer_preview.isValid():
             painter = QPainter(image)
-            self.renderer.render(painter)
+            renderer_preview.render(painter)
             painter.end()
         self.label_2.setScaledContents(True)
         self.label_2.setPixmap(QPixmap.fromImage(image))
@@ -58,8 +72,11 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
 
     def print_player_card(self):
         printer = QPrinter()
+        printer.setOrientation(QPrinter.Portrait)
+        printer.setFullPage(True)
+        printer.setOutputFormat(QPrinter.NativeFormat)
         printer.setPageMargins(5, 5, 5, 5, QPrinter.Millimeter)
-        printer.setPageSize(QPageSize(QSizeF(210, 90), QPageSize.Millimeter))
+        printer.setPageSize(QPrinter.A4)
         # printer.setOutputFileName('tmp/player_card.pdf')
 
         printer.setResolution(600)
