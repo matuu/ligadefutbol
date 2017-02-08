@@ -13,8 +13,8 @@
    viewBox="0 0 210 90"
    version="1.1"
    id="svg8"
-   sodipodi:docname="template.svg"
-   inkscape:version="0.92.0 r15299">
+   sodipodi:docname="template_preview.svg"
+   inkscape:version="0.92.0 r">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -25,16 +25,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1018"
+     inkscape:window-height="1026"
      id="namedview3807"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="0.90588294"
-     inkscape:cx="161.39804"
-     inkscape:cy="75.629425"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:zoom="5.1244478"
+     inkscape:cx="246.39777"
+     inkscape:cy="148.74851"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg8" />
   <defs
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -72,14 +72,15 @@
        style="fill:#cccccc;stroke-width:0.26356697" />
   </g>
   <image
+     sodipodi:absref="/home/matuu/gitrepos/ligadefutbol/ligafutbol/asserts/[imagen]"
      xlink:href="[imagen]"
-     width="31.75"
-     height="31.75"
-     preserveAspectRatio="none"
-     style="image-rendering:optimizeQuality"
-     id="image3688"
+     y="28.628563"
      x="7.8974171"
-     y="28.628563" />
+     id="image3688"
+     style="image-rendering:optimizeQuality"
+     preserveAspectRatio="none"
+     height="31.75"
+     width="31.75" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -181,41 +182,41 @@
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
      x="43.485977"
-     y="49.045868"
+     y="46.400032"
      id="text3861"><tspan
        id="tspan3859"
        x="43.485977"
-       y="49.045868"
+       y="46.400032"
        style="font-size:3.88055563px;stroke-width:0.26458332">DNI</tspan></text>
   <text
      id="text3865"
-     y="49.045868"
+     y="46.400032"
      x="62.006821"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
      xml:space="preserve"><tspan
        style="font-size:3.88055563px;stroke-width:0.26458332"
-       y="49.045868"
+       y="46.400032"
        x="62.006821"
        id="tspan3863">[dni]</tspan></text>
   <text
      id="text3885"
-     y="56.454201"
+     y="53.279198"
      x="43.485977"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
      xml:space="preserve"><tspan
        style="font-size:3.88055563px;stroke-width:0.26458332"
-       y="56.454201"
+       y="53.279198"
        x="43.485977"
        id="tspan3883">Nació</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
      x="62.006821"
-     y="56.454201"
+     y="53.279198"
      id="text3889"><tspan
        id="tspan3887"
        x="62.006821"
-       y="56.454201"
+       y="53.279198"
        style="font-size:3.88055563px;stroke-width:0.26458332">[lugar_nac]</tspan></text>
   <text
      xml:space="preserve"
@@ -245,4 +246,14 @@
      xml:space="preserve"><tspan
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold'"
        id="tspan3905">[club]</tspan></text>
+  <text
+     id="text5236"
+     y="58.041702"
+     x="62.006821"
+     style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+     xml:space="preserve"><tspan
+       style="font-size:3.88055563px;stroke-width:0.26458332"
+       y="58.041702"
+       x="62.006821"
+       id="tspan5234">[provincia]</tspan></text>
 </svg>

@@ -125,7 +125,8 @@ class Jugador(Base):
             'apellido': self.apellido,
             'nombre': self.nombre,
             'dni': self.dni,
-            'lugar_nac': "{}, {}".format(self.lugar_nac, self.provincia),
+            'lugar_nac': "{}".format(self.lugar_nac),
+            'provincia': "{}".format(self.provincia),
             'fecha_nac': self.fecha_nac.strftime("%d/%m/%Y"),
             'anio': self.vigencia.year,
             'vigencia': self.vigencia.strftime("%d/%m/%Y")
