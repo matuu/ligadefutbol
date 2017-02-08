@@ -73,13 +73,13 @@ class PreviewCardDialog(LSFDialog, Ui_dialog_preview_card):
     def print_player_card(self):
         printer = QPrinter()
         printer.setOrientation(QPrinter.Portrait)
-        printer.setFullPage(True)
-        printer.setOutputFormat(QPrinter.NativeFormat)
-        printer.setPageMargins(5, 5, 5, 5, QPrinter.Millimeter)
-        printer.setPageSize(QPrinter.A4)
+        printer.setPageMargins(0, 0, 0, 0, QPrinter.Millimeter)
+        printer.setPageSize(QPrinter.Legal)
+        # printer.setFullPage(True)
+        # printer.setOutputFormat(QPrinter.NativeFormat)
         # printer.setOutputFileName('tmp/player_card.pdf')
 
-        printer.setResolution(600)
+        printer.setResolution(300)
         painter = QPainter()
         painter.begin(printer)
         self.renderer.render(painter)
