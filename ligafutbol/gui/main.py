@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.ApplicationModal)
-        MainWindow.resize(818, 725)
+        MainWindow.resize(818, 625)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/images/asserts/logo-lsf.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
