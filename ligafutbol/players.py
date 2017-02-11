@@ -111,7 +111,9 @@ class PlayerListView(LSFDialog, Ui_dialog_players):
             expression = []
             for term in txt.split(' '):
                 expression.append(
-                    or_(Jugador.nombre.like("%{}%".format(term)), Jugador.apellido.like("{}%".format(term))))
+                    or_(Jugador.nombre.like("%{}%".format(term)), 
+                        Jugador.apellido.like("%{}%".format(term)),
+                        Jugador.dni.like("{}%".format(term))))
             self.model.set_filter(and_(*[exp for exp in expression]))
         else:
             self.model.set_filter(None)
