@@ -30,9 +30,9 @@
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="5.1244478"
-     inkscape:cx="246.39777"
-     inkscape:cy="148.74851"
+     inkscape:zoom="1.281112"
+     inkscape:cx="366.90013"
+     inkscape:cy="267.68261"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -74,13 +74,13 @@
   <image
      sodipodi:absref="/home/matuu/gitrepos/ligadefutbol/ligafutbol/asserts/[imagen]"
      xlink:href="[imagen]"
-     y="28.628563"
-     x="7.8974171"
-     id="image3688"
-     style="image-rendering:optimizeQuality"
-     preserveAspectRatio="none"
+     width="31.75"
      height="31.75"
-     width="31.75" />
+     preserveAspectRatio="none"
+     style="image-rendering:optimizeQuality"
+     id="image3688"
+     x="7.8974171"
+     y="28.628563" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:6.61458302px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -129,23 +129,23 @@
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458254px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-     x="141.47052"
+     x="145.17464"
      y="56.594143"
      id="text3841"><tspan
        sodipodi:role="line"
        id="tspan3839"
-       x="141.47052"
+       x="145.17464"
        y="56.594143"
        style="stroke-width:0.26458332">[anio]</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:6.61458254px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-     x="127.8398"
+     x="131.54391"
      y="66.920456"
      id="text3845"><tspan
        sodipodi:role="line"
        id="tspan3843"
-       x="127.8398"
+       x="131.54391"
        y="66.920456"
        style="font-size:5.64444447px;stroke-width:0.26458332">VIGENCIA: [vigencia]</tspan></text>
   <text
