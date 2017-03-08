@@ -2,6 +2,7 @@ import random
 import string
 import os
 import sys
+import html
 
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QDialog, QMessageBox
@@ -44,7 +45,7 @@ def random_string():
 
 def render_template(svg, dict):
     for var in dict.keys():
-        svg = svg.replace("[{}]".format(var), str(dict[var]))
+        svg = svg.replace("[{}]".format(var), html.escape(str(dict[var])).encode('ascii', 'xmlcharrefreplace').decode())
     return svg
 
 
